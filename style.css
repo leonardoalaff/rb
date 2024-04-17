@@ -52,11 +52,12 @@ header {
 }
 
 .menu-box.active{
-    width: 40%;
+    width: 45%;
+    padding: 10px;
     border-radius: 30px;
     font-size: 0.8em;
     height: 7vh;
-    background-color: rgba(0, 0, 0, 0.596);
+    background-color: rgba(0, 0, 0, 0.692);
 }
 
 .menu-box:hover {
@@ -80,11 +81,10 @@ header {
 
 .menu{
     position: absolute;
-    right: 15%;
+    right: 5%;
     display: flex;
     justify-content: center;
     list-style: none;
-    gap: 10%;
     color: white;
 }
 .menu.active {
@@ -98,17 +98,67 @@ header {
     align-items: center;
     justify-content: center;
     font-weight: bold;
-    gap: 35px;
 }
 .menu.active:hover {
     color: white;
 }
 
-li:hover {
+.lista {
+    width: 120px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.lista::before {
+    position: absolute;
+    content: "";
+    width: 120px;
+    height: 40px;
+    background-color: #007fc7;
+    left: -50px;
+    top: 100%;
+    border-radius: 20px;
+    z-index: -1;
+}
+
+.lista:hover::before {
+    animation: desloca 0.5s;
+    top: 0;
+    left: 0;
+}
+
+@keyframes desloca {
+    0% {
+        left: -50px;
+        top: 100%;
+    }
+    50% {
+        left: 15%;
+        top: -25%;
+    }
+    100% {
+        left: 0;
+        top: 0;
+    }
+}
+
+.l1::before {background-color: purple;}
+.l2::before {background-color: #ff5500;}
+.l3::before {background-color: #007fc7;}
+.l4::before {background-color: green;}
+.l5::before {background-color: #ff0088;}
+
+/*li:hover {
     text-decoration: underline 2px;
     text-underline-offset: 10px;
     cursor: pointer;
-}
+}*/
 
 .proximo-show {
     width: 100%;
@@ -140,23 +190,32 @@ li:hover {
 
 .t-proximo-show {
     margin-left: 3%;
-    font-size: 2.5em;
+    font-size: 2em;
     margin-bottom: 10px;
     cursor: context-menu;
     width: 340px;
 }
+.t-proximo {
+    font-weight: lighter;
+}
+.t-show {
+    color: orangered;
+    font-weight: bold;
+}
 .data {
     margin-left: 3%;
-    font-size: 1.8em;
+    font-size: 1.5em;
     margin-bottom: 10px;
     cursor: context-menu;
     width: 100px;
+    font-weight: lighter;
 }
 .local {
     margin-left: 3%;
-    font-size: 1.5em;
+    font-size: 1.4em;
     cursor: context-menu;
     width: 160px;
+    font-weight: lighter;
 }
 
 .social {
@@ -165,31 +224,29 @@ li:hover {
     left: 5%;
     display: flex;
     justify-content: center;
-    height: 60px;
+    height: 50px;
     width: 300px;
-    gap: 70px;
+    gap: 50px;
     z-index: 5;
 }
 .social img {
-    filter: grayscale(100%);
+    filter: grayscale(100%) contrast(120%);
     transition: 1s;
 }
 .social img:hover {
-    transform: scale(1.1) rotateY(360deg);
+    transform: rotateY(360deg);
     transition: 1.2s;
+    cursor: pointer;
 }
 
 .facebook:hover {
-    filter: drop-shadow(0 0 20px blue);
-    transition: 0.3s;
+    filter: none;
 }
 .spotify:hover {
-    filter: drop-shadow(0 0 20px green);
-    transition: 0.3s;
+    filter: none;
 }
 .youtube:hover {
-    filter: drop-shadow(0 0 20px red);
-    transition: 0.3s;
+    filter: none;
 }
 
 .sessao1 {
