@@ -6,6 +6,9 @@
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
 }
+html {
+    background-color: #f5f5f5;
+}
 
 html::-webkit-scrollbar {
     display: none;
@@ -104,7 +107,7 @@ header {
 }
 
 .lista {
-    width: 120px;
+    width: 110px;
     height: 40px;
     display: flex;
     align-items: center;
@@ -118,7 +121,7 @@ header {
 .lista::before {
     position: absolute;
     content: "";
-    width: 120px;
+    width: 110px;
     height: 40px;
     background-color: #007fc7;
     left: -50px;
@@ -231,7 +234,7 @@ header {
 }
 .social img {
     filter: grayscale(100%) contrast(120%);
-    transition: 1s;
+    transition: 0.8s;
 }
 .social img:hover {
     transform: rotateY(360deg);
@@ -249,17 +252,187 @@ header {
     filter: none;
 }
 
+
+
+
+/********** SLIDE ***********/
 .sessao1 {
-    background: #f5f5f5 url('imagens/backgrounds/pngs1.png') no-repeat;
-    background-size: contain;
-    background-position: center center;
+    background-color: #f5f5f5;
+    position: relative;
     width: 100%;
     height: 100vh;
-    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
-.sessao2 {
+.box-t-musicas {
     width: 100%;
-    height: 100vh;
-    background-color: #007fc7;
+    height: 120px;
+    position: absolute;
+    top: calc(5% + 50px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+.t-musicas {
+    background-image: url('imagens/t-musicas.svg');
+    background-position: center center;
+    background-size: cover;
+    width: 550px;
+    height: 170px;
+}
+
+.box-t-descricao-musicas {
+    position: absolute;
+    margin-top: 50%;
+    width: 60%;
+    height: 20vh;
+}
+.t-des-h3 {
+    display: flex;
+    justify-content: center;
+}
+.t-des-p {
+    text-align: center;
+}
+
+.galeria {
+    width: 100%;
+    height: 400px;
+}
+
+.galeria-container {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 400px;
+    margin: 0 auto;
+    max-width: 1000px;
+    position: relative;
+    top: 50px;
+}
+
+.galeria-item {
+    height: 200px;
+    opacity: 0;
+    position: absolute;
+    transition: all 0.3s ease-in-out;
+    width: 330px;
+    z-index: 0;
+    border-radius: 50%;
+    background-size: contain;
+}
+
+.galeria-item-1 {
+    width: 30%;
+    height: 26vh;
+    left: 15%;
+    opacity: 0.4;
+    transform: translateX(-50%);
+}
+
+.galeria-item-2, .galeria-item-4 {
+    height: 36vh;
+    opacity: 0.8;
+    width: 35%;
+    z-index: 1;
+}
+
+.galeria-item-2 {
+    left: 30%;
+    transform: translateX(-50%);
+}
+
+.galeria-item-3 {
+    filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.452));
+    height: 50vh;
+    opacity: 1;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40%;
+    z-index: 2;
+}
+
+.galeria-item-4 {
+    left: 70%;
+    transform: translateX(-50%);
+}
+
+.galeria-item-5 {
+    width: 30%;
+    height: 26vh;
+    left: 85%;
+    opacity: 0.4;
+    transform: translateX(-50%);
+}
+
+.galeria-controls {
+    display: flex;
+    justify-content: center;
+    margin: 25px 0;
+    height: 100px;
+}
+
+.galeria-controls button {
+    position: absolute;
+    top: calc(50% + 25px);
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+    font-size: 30px;
+    margin: 0 50px;
+    padding: 0 12px;
+    text-transform: capitalize;
+    z-index: 10;
+    color: transparent;
+    height: 10vh;
+    width: 7%;
+}
+.galeria-controls button:hover {
+    transform: scale(1.1);
+    transition: 0.3s;
+}
+
+.galeria-controls-button:focus {
+    outline: none;
+}
+
+.galeria-controls-Anterior {
+    left: 0;
+    background-image: url('imagens/icones/seta-esquerda.svg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+.galeria-controls-Proximo {
+    right: 0;
+    background-image: url('imagens/icones/seta-direita.svg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+.galeria-nav {
+    bottom: -15px;
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    position: absolute;
+    width: 100%;
+}
+
+.galeria-nav li {
+    background: #ccc;
+    border-radius: 50%;
+    height: 10px;
+    margin: 0 16px;
+    width: 10px;
+}
+
+.galeria-nav li.galeria-item-selected {
+    background: #555;
+}
+/********** FIM DO SLIDE ***********/
